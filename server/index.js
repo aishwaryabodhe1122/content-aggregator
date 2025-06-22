@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const newsRoutes = require('./routes/newsRoutes');
-app.use('/api/news', newsRoutes);
+app.use('/api', newsRoutes); // This line is crucial
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
