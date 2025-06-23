@@ -1,19 +1,26 @@
-import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Register = () => {
-  const { register } = useAuth();
+  const { login } = useAuth(); // 👈 Reuse login method
   const navigate = useNavigate();
-
   const [form, setForm] = useState({ name: '', email: '', password: '' });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register(form.name, form.email, form.password);
-      alert('Registered! Now login.');
-      navigate('/login');
+      await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      // 👇 Automatically login after successful registration
+      await login(form.email, form.password);
+
+      // 👇 Redirect to home
+      navigate('/home');
     } catch (err) {
       alert('Registration failed');
     }

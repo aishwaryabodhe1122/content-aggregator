@@ -12,11 +12,12 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(form.email, form.password);
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       alert('Login failed');
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} style={{ padding: '40px' }}>
