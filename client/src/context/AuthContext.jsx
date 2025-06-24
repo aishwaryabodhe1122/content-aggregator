@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUser(res.data);
+          console.log("Fetched user:", res.data); 
         } catch {
           logout();
         }

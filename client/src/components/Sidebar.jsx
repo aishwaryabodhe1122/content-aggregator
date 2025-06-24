@@ -25,14 +25,16 @@ const Sidebar = ({ onCategoryChange }) => {
 
   return (
     <aside style={{ width: '220px', background: '#f0f0f0', height: 'calc(100vh - 60px)', padding: '20px' }}>
-      <h3>Categories</h3>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {categories.map((cat) => (
-          <li key={cat} style={{ marginBottom: 10, cursor: 'pointer' }} onClick={() => handleClick(cat)}>
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h3>Categories</h3>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          {categories.map((cat) => (
+            <li key={cat} style={{ marginBottom: 10, cursor: 'pointer' }} onClick={() => handleClick(cat)}>
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </li>
+          ))}
+        </ul>
+      </div>
     </aside>
   );
 };

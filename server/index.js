@@ -10,14 +10,13 @@ app.use(cors());
 app.use(express.json());
 
 const newsRoutes = require('./routes/newsRoutes');
-app.use('/api', newsRoutes); // This line is crucial
+app.use('/api', newsRoutes); 
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/user', userRoutes);
-
 
 // DB connection
 connectDB();
